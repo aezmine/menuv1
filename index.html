@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menu Kedai</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page-counter"><span id="current-slide">1</span> / <span id="total-slides">9</span></div>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/1.jpg" />
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/2.jpg" />
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/3.jpg" />
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/4.jpg" />
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/5.jpg" />
+                </div>
+            </div>
+
+             <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/6.jpg" />
+                </div>
+            </div>
+
+             <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/7.jpg" />
+                </div>
+            </div>
+
+             <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/8.jpg" />
+                </div>
+            </div>
+
+             <div class="swiper-slide">
+                <div class="swiper-zoom-container">
+                    <img src="images/9.jpg" />
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <a href="#" class="floating-btn">
+        Order Now
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+        // 3D Effect Settings
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto', // IMPORTANT: This lets the CSS width:auto work
+        
+        coverflowEffect: {
+            rotate: 20,      
+            stretch: 0,
+            depth: 100,      
+            modifier: 1,
+            slideShadows: true, 
+        },
+        
+        // Enable Zoom
+        zoom: {
+            maxRatio: 3,
+        },
+        
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Counter Logic
+        on: {
+            slideChange: function () {
+                let current = this.realIndex + 1;
+                let total = this.slides.length;
+                document.getElementById('current-slide').innerText = current;
+                document.getElementById('total-slides').innerText = total;
+            },
+            init: function() {
+                let total = this.slides.length;
+                document.getElementById('total-slides').innerText = total;
+            }
+        }
+    });
+
+    // Auto hint animation
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            swiper.slideNext(500); 
+            setTimeout(() => {
+                swiper.slidePrev(500);
+            }, 600);
+        }, 800);
+    });
+</script>
+
+</body>
+</html>

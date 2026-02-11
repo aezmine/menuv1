@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+/* --- BASE STYLES --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #111; /* Deep black */
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* Background Effect */
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --- SWIPER CONTAINER --- */
+.swiper {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* The Slide Wrapper - Now Transparent & Flexible */
+.swiper-slide {
+  background: transparent; /* Remove the dark card background */
+  width: auto;  /* Let the image decide the width */
+  height: auto; /* Let the image decide the height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The Zoom Container - This is the actual "Card" now */
+.swiper-zoom-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6); /* Shadow hugs the image */
+  background: #222; /* Fallback color behind image */
+}
+
+/* Image Styling - Mobile Optimized Constraints */
+.swiper-slide img {
+  display: block;
+  width: auto;        /* Auto width maintains aspect ratio */
+  height: auto;       /* Auto height maintains aspect ratio */
+  
+  /* Mobile Limits: Keeps it from being too big */
+  max-width: 85vw;    /* Max 85% of screen width */
+  max-height: 75vh;   /* Max 75% of screen height */
+  
+  object-fit: contain; 
+}
+
+/* --- UI ELEMENTS --- */
+
+/* Page Counter */
+.page-counter {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Floating Button */
+.floating-btn {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #25D366;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 10;
+}
+
+/* Pagination Dots */
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.3;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #fff;
+}
